@@ -1,19 +1,19 @@
 ---
 layout: workshop      # DON'T CHANGE THIS.
 root: .               # DON'T CHANGE THIS EITHER.  (THANK YOU.)
-carpentry: "FIXME"    # what kind of Carpentry (must be either "dc" or "swc")
-venue: "FIXME"        # brief name of host site without address (e.g., "Euphoric State University")
+carpentry: "swc"    # what kind of Carpentry (must be either "dc" or "swc")
+venue: "University of Manchester"        # brief name of host site without address (e.g., "Euphoric State University")
 address: "FIXME"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria")
-country: "FIXME"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1)
-language: "FIXME"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/ISO_639-1)
+country: "gb"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1)
+language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/ISO_639-1)
 latlng: "FIXME"       # decimal latitude and longitude of workshop venue (e.g., "41.7901128,-87.6007318" - use http://www.latlong.net/)
-humandate: "FIXME"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
-humantime: "FIXME"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
+humandate: "2-3 March 2017"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humantime: "9:00 am - 5:00 pm"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
 startdate: FIXME      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: FIXME        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["FIXME"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: ["FIXME"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
-contact: ["fixme@example.org"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
+instructor: ["Mario Antonioletti, David Jones"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+helper: ["Aleksandra Nenadic"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+contact: ["Jenefer.Cockitt@manchester.ac.uk", "a.nenadic@manchester.ac.uk"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 etherpad:             # optional: URL for the workshop Etherpad if there is one
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
@@ -47,10 +47,10 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 </iframe>
 {% endif %}
 
-<h4>This is the workshop template.  Use it to create your own website.
-Delete these lines and please fill in 
-<a href="{{site.amy_site}}/submit">this self-organized workshop form</a>
-and the administrator will contact you if we need any extra information.</h4>
+<!--<h4>This is the workshop template.  Use it to create your own website.-->
+<!--Delete these lines and please fill in -->
+<!--<a href="{{site.amy_site}}/submit">this self-organized workshop form</a>-->
+<!--and the administrator will contact you if we need any extra information.</h4>-->
 
 <h2 id="general">General Information</h2>
 
@@ -79,6 +79,8 @@ and the administrator will contact you if we need any extra information.</h4>
   </em>
 </p>
 
+<h2 id="workshop_details">Workshop Details</h2>
+
 <!--
   AUDIENCE
 
@@ -91,6 +93,18 @@ and the administrator will contact you if we need any extra information.</h4>
   <strong>You don't need to have any previous knowledge of the tools that will
     be presented at the workshop.</strong>
 </p>
+
+<!--
+  DATE
+
+  This block displays the date and time of the workshop.
+-->
+{% if page.humandate and page.humantime %}
+<p id="when">
+  <strong>When:</strong>
+  {{page.humandate}}, {{page.humantime}}.
+</p>
+{% endif %}
 
 <!--
   LOCATION
@@ -116,14 +130,14 @@ and the administrator will contact you if we need any extra information.</h4>
 
   Modify the block below if there are any special requirements.
 -->
-<p id="requirements">
-  <strong>Requirements:</strong> Participants must bring a laptop with a
-  Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges
-  on. They should have a few specific software packages installed (listed
-  <a href="#setup">below</a>). They are also required to abide by
-  Software Carpentry's
-  <a href="{{site.swc_site}}/conduct.html">Code of Conduct</a>.
-</p>
+<!--<p id="requirements">-->
+  <!--<strong>Requirements:</strong> Participants must bring a laptop with a-->
+  <!--Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges-->
+  <!--on. They should have a few specific software packages installed (listed-->
+  <!--<a href="#setup">below</a>). They are also required to abide by-->
+  <!--Software Carpentry's-->
+  <!--<a href="{{site.swc_site}}/conduct.html">Code of Conduct</a>.-->
+<!--</p>-->
 
 <!--
   ACCESSIBILITY
@@ -131,23 +145,23 @@ and the administrator will contact you if we need any extra information.</h4>
   Modify the block below if there are any barriers to accessibility or
   special instructions.
 -->
-<p id="accessibility">
-  <strong>Accessibility:</strong> We are committed to making this workshop
-  accessible to everybody.
-  The workshop organisers have checked that:
-</p>
-<ul>
-  <li>The room is wheelchair / scooter accessible.</li>
-  <li>Accessible restrooms are available.</li>
-</ul>
-<p>
-  Materials will be provided in advance of the workshop and
-  large-print handouts are available if needed by notifying the
-  organizers in advance.  If we can help making learning easier for
-  you (e.g. sign-language interpreters, lactation facilities) please
-  <a href="mailto:{{page.contact}}">get in touch</a> and we will
-  attempt to provide them.
-</p>
+<!--<p id="accessibility">-->
+  <!--<strong>Accessibility:</strong> We are committed to making this workshop-->
+  <!--accessible to everybody.-->
+  <!--The workshop organisers have checked that:-->
+<!--</p>-->
+<!--<ul>-->
+  <!--<li>The room is wheelchair / scooter accessible.</li>-->
+  <!--<li>Accessible restrooms are available.</li>-->
+<!--</ul>-->
+<!--<p>-->
+  <!--Materials will be provided in advance of the workshop and-->
+  <!--large-print handouts are available if needed by notifying the-->
+  <!--organizers in advance.  If we can help making learning easier for-->
+  <!--you (e.g. sign-language interpreters, lactation facilities) please-->
+  <!--<a href="mailto:{{page.contact}}">get in touch</a> and we will-->
+  <!--attempt to provide them.-->
+<!--</p>-->
 
 <!--
   CONTACT EMAIL ADDRESS
@@ -195,23 +209,92 @@ and the administrator will contact you if we need any extra information.</h4>
   <div class="col-md-6">
     <h3>Day 1</h3>
     <table class="table table-striped">
-      <tr> <td>09:00</td>  <td>Automating tasks with the Unix shell</td> </tr>
-      <tr> <td>10:30</td> <td>Coffee</td> </tr>
-      <tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-      <tr> <td>13:00</td>  <td>Building programs with Python</td> </tr>
-      <tr> <td>14:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>16:00</td>  <td>Wrap-up</td> </tr>
+      <tr> <td><strong>Time</strong></td> <td><strong>Content</strong></td> <td><strong>References</strong></td></tr>
+      <tr> <td>09:00</td>  <td>Welcome and introduction</td>
+        <td>
+          <ul>
+            <li>Check people have software installed</li>
+            <li>Explain content of the course</li>
+            <li>Explain Code of Conduct</li>
+            <li>Explain use of stickies and feedback</li>
+            <li>Etherpad</li>
+          </ul>
+        </td>
+      </tr>
+      <tr> <td>09:45</td>  <td>Automating tasks with the Unix Shell (1)</td>
+        <td>
+          <ul>
+            <li>Introducing the Shell</li>
+            <li>Navigating files and directories</li>
+            <li>Working with files and directories</li>
+            <li>Pipes and filters for combining existing shell programs</li>
+          </ul>
+        </td>
+      </tr>
+      <tr> <td>11:00</td> <td>Coffee</td> <td></td></tr>
+      <tr> <td>11:15</td>  <td>Automating tasks with the Unix Shell (2)</td>
+        <td>
+          <ul>
+            <li>Looping over to repeat commands</li>
+            <li>Shell scripts for reusable code</li>
+            <li>Finding files and things in files</li>
+          </ul>
+        </td>
+      </tr>
+      <tr> <td>12:30</td>  <td>Lunch break</td> <td></td></tr>
+      <tr> <td>13:15</td>  <td>Version control with Git (1)</td>
+        <td>
+            <li>Why version control</li>
+            <li>Setting up Git</li>
+            <li>Creating a repository</li>
+            <li>Tracking changes</li>
+            <li>Exploring history</li>
+            <li>Ignoring things</li>
+        </td>
+      </tr>
+      <tr> <td>15:15</td>  <td>Coffee</td> <td></td></tr>
+      <tr> <td>15:15</td>  <td>Data organization and cleaning (best practices)</td>
+        <td>
+            <li>Data organisation with spreadsheets</li>
+            <li>Data cleaning with OpenRefine</li>
+        </td>
+      </tr>
+      <tr> <td>17:00</td>  <td>Wrap-up</td> <td></td></tr>
     </table>
   </div>
   <div class="col-md-6">
     <h3>Day 2</h3>
     <table class="table table-striped">
-      <tr> <td>09:00</td>  <td>Version control with Git</td> </tr>
-      <tr> <td>10:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-      <tr> <td>13:00</td>  <td>Managing data with SQL</td> </tr>
-      <tr> <td>14:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>16:00</td>  <td>Wrap-up</td> </tr>
+      <tr> <td><strong>Time</strong></td> <td><strong>Content</strong></td> <td><strong>References</strong></td></tr>
+      <tr> <td>09:00</td>  <td>Recap of Day 1</td> <td></td></tr>
+      <tr> <td>09:15</td>  <td>Version control with Git (2)</td>
+        <td>
+            <li>Remote repositories in Github</li>
+            <li>Collaborating using Github</li>
+            <li>Managing conflicts</li>
+            <li>Licensing</li>
+            <li>Hosting</li>
+        </td>
+      </tr>
+      <tr> <td>10:30</td> <td>Coffee</td> <td></td></tr>
+      <tr> <td>11:00</td>  <td>Building programs with Python (1)</td>
+        <td>
+          <ul>
+            <li>Introducing the Shell</li>
+            <li>Navigating files and directories</li>
+            <li>Working with files and directories</li>
+            <li>Pipes and filters for combining existing shell programs</li>
+            <li>Looping over to repeat commands</li>
+            <li>Shell scripts for reusable code</li>
+            <li>Finding files and things in files</li>
+          </ul>
+        </td>
+      </tr>
+      <tr> <td>12:30</td>  <td>Lunch break</td> <td></td></tr>
+      <tr> <td>13:15</td>  <td>Building programs with Python (2)</td> <td></td></tr>
+      <tr> <td>14:45</td>  <td>Coffee</td> <td></td></tr>
+      <tr> <td>15:30</td>  <td>Building programs with Python (3)</td> <td></td></tr>
+      <tr> <td>16:30</td>  <td>Wrap-up</td> <td></td></tr>
     </table>
   </div>
 </div>
