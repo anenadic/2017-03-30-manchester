@@ -243,7 +243,11 @@ eventbrite: 32322819423         # optional: alphanumeric key for Eventbrite regi
             <li>Explain content of the course</li>
             <li>Explain <a href="{{site.swc_site}}/conduct.html">Code of Conduct</a></li>
             <li>Explain use of stickies and feedback</li>
-            <li><a target="_blank" href="http://pad.software-carpentry.org/2017-03-02-manchester">Etherpad</a></li>
+            {% if page.etherpad %}
+            <li>
+              <a target="_blank" href="{{page.etherpad}}">Etherpad</a>
+            </li>
+            {% endif %}
           </ul>
         </td>
       </tr>
